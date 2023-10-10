@@ -3,7 +3,7 @@ import testController from '../controllers/testController.js'
 
 const router = Router()
 
-router.get('/', testController.getAll)
-router.get('/:testId', testController.getOne)
+router.get('/', testController.getAllTest)
+router.get('/:testId', testController.getOneTest)
 
 export default router

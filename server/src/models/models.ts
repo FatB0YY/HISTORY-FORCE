@@ -4,6 +4,7 @@ dotenv.config({ path: `.${process.env.NODE_ENV}.env` })
 import { QuestionsAnswers, initQuestionsAnswersModel } from './dbModels/QuestionsAnswers.model.js'
 import { Test, initTestModel } from './dbModels/Test.model.js'
 import { TestQuestionsAnswers, initTestQuestionsAnswersModel } from './dbModels/TestQuestionsAnswers.model.js'
+import { Category, initCategoryModel } from './dbModels/Category.mode.js'
 import { Sequelize } from 'sequelize'
 
 export const sequelize: Sequelize = new Sequelize(
@@ -21,5 +22,6 @@ export const sequelize: Sequelize = new Sequelize(
 initQuestionsAnswersModel(sequelize)
 initTestModel(sequelize)
 initTestQuestionsAnswersModel(sequelize)
+initCategoryModel(sequelize)
 
-export { QuestionsAnswers, Test, TestQuestionsAnswers }
+export { QuestionsAnswers, Test, TestQuestionsAnswers, Category }

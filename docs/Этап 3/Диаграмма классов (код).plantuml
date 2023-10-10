@@ -1,0 +1,50 @@
+@startuml
+
+class QuestionsAnswers {
+  + id: number
+  + questionText: string
+  + answerOptions: string
+  + correctAnswer: string
+}
+
+class Test {
+  + id: number
+  + name: string
+  + description: string
+  + t: number
+}
+
+class TestQuestionsAnswers {
+  + id: number
+  + idTest: number
+  + idQuestionsAnswers: number
+}
+
+class TestController {
+  + getAllTests(req: Request, res: Response, next: NextFunction)
+  + getOneTest(req: Request, res: Response, next: NextFunction)
+  + getAllCategories(req: Request, res: Response, next: NextFunction)
+}
+
+class ApiError {
+  + status: number
+  + errors: unknown[]
+  + name: string
+  + BadRequest(message: string): ApiError
+  + badValidation(errors: unknown[] = []): ApiError
+  + forbiddenError(): ApiError
+  + internalError(message: string, errors: unknown[]): ApiError
+}
+
+QuestionsAnswers -- TestQuestionsAnswers
+Test -- TestQuestionsAnswers
+TestQuestionsAnswers -- QuestionsAnswers
+
+TestController -- QuestionsAnswers
+TestController -- Test
+TestController -- ApiError
+
+@enduml
+
+
+
