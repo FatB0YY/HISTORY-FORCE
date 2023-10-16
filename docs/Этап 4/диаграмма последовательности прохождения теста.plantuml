@@ -1,0 +1,13 @@
+@startuml
+
+    actor Пользователь
+    boundary Tests
+    database Db
+
+    Пользователь -> Tests: Переход на секцию Тестов
+
+
+    mainframe <b>sd</b> Прохождение теста
+        activate Tests
+
+@endum

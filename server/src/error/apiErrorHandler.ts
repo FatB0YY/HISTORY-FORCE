@@ -5,10 +5,10 @@ export function apiErrorHandler(err: unknown, req: Request, res: Response, next:
   // запись в журнал
   if (Array.isArray(err) && err.length) {
     err.forEach((error: unknown) => {
-      console.error(error)
+      console.error('----------------------------------', error)
     })
   } else {
-    console.error(err)
+    console.error('----------------------------------', err)
   }
 
   if (err instanceof ApiError) {
